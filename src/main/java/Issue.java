@@ -12,18 +12,9 @@ Date createdAt;
 Date closedAt;
 User user;
 User assignee;
-public Issue(long number, int id, String state, String title, String body, Date createdAt, Date closedAt, User user,
-		User assignee) {
-	super();
-	this.number = number;
-	this.id = id;
-	this.state = state;
-	this.title = title;
-	this.body = body;
-	this.createdAt = createdAt;
-	this.closedAt = closedAt;
-	this.user = user;
-	this.assignee = assignee;
+public Issue()
+{
+	
 }
 @Override
 public int hashCode() {
@@ -44,6 +35,11 @@ public boolean equals(Object obj) {
 	if (id != other.id)
 		return false;
 	return true;
+}
+@Override
+public String toString() {
+	return "Issue [number=" + number + ", id=" + id + ", state=" + state + ", title=" + title + ", body=" + body
+			+ ", createdAt=" + createdAt + ", closedAt=" + closedAt + ", user=" + user + ", assignee=" + assignee + "]";
 }
 
 }

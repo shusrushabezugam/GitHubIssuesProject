@@ -3,10 +3,9 @@ package main.java;
 public class User {
 String login;
 int id;
-public User(String login, int id) {
-	super();
-	this.login = login;
-	this.id = id;
+public User()
+{
+	
 }
 @Override
 public int hashCode() {
@@ -27,5 +26,9 @@ public boolean equals(Object obj) {
 	if (id != other.id)
 		return false;
 	return true;
+}
+@Override
+public String toString() {
+	return "User [login=" + login + ", id=" + id + "]";
 }
 }
