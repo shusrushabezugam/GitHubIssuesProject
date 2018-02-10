@@ -7,6 +7,18 @@ public User()
 {
 	
 }
+public String getLogin() {
+	return login;
+}
+public void setLogin(String login) {
+	this.login = login;
+}
+public int getId() {
+	return id;
+}
+public void setId(int id) {
+	this.id = id;
+}
 @Override
 public int hashCode() {
 	final int prime = 31;
