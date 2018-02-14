@@ -18,6 +18,7 @@ public class IssueTest {
    public void setUp()
    {
        i1.setId(10);
+       /*
        i1.setAssignee(u1);
        i1.setBody("Bug to be solved");
        i1.setClosedAt(new Date());
@@ -26,6 +27,7 @@ public class IssueTest {
        i1.setNumber(123);
        i1.setTitle("First Bug");
        i1.setState("open");
+       */
        i2.setId(20);
        u1.setId(10);
        u1.setLogin("shusrushabezugam");
