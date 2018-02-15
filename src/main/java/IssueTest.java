@@ -29,7 +29,7 @@ public class IssueTest {
        i1.setTitle("First Bug");
        i1.setState("open");
        */
-       i2.setId(20);
+       i2.setBody("Second Bug");
        u1.setId(10);
        u1.setLogin("shusrushabezugam");
        u2.setId(10);
@@ -67,6 +67,11 @@ public class IssueTest {
        assertTrue(u1.getId()==u2.getId());
            
     }
-    
-    
+    @Test
+    public void toStringTest()
+    {
+        assertEquals("Second Bug",i2.getBody().toString());
+    }
 }
+// test for exceptions
+//@Test(expeccted=npe.class)
