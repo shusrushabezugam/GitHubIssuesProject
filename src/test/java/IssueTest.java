@@ -1,7 +1,6 @@
 package test.java;
-import static org.junit.Assert.*;
-
-import java.util.Date;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -19,7 +18,7 @@ public class IssueTest {
    public void setUp()
    {
        i1.setId(10);
-      
+       i2.setId(10);
      // i1.setAssignee(u1);
        i1.setBody("Bug");
       /* i1.setClosedAt(new Date());
@@ -53,20 +52,7 @@ public class IssueTest {
         assertTrue(y==z);
     }
     
-    @Test
-    public void userHashCodeTest()
-    {
-        int h1,h2;
-        h1=u1.hashCode();
-        h2=u2.hashCode();
-        assertTrue(h1==h2);
-    }
-    @Test
-    public void equalsUserTest() {
-      
-       assertTrue(u1.getId()==u2.getId());
-           
-    }
+    
     @Test
     public void toStringTest()
     {
