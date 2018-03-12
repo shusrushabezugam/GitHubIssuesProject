@@ -11,8 +11,8 @@ import java.util.Scanner;
 public class IssueExporter {
 
     private static Scanner scanner;
-
-    public static void main(String[] args) throws FileNotFoundException {
+    public void issueExporterFunction() throws FileNotFoundException
+    {
         System.out.println("Please enter GitHub username");
         scanner = new Scanner(System.in);
         String gn = scanner.next();
@@ -89,4 +89,10 @@ public class IssueExporter {
         System.setOut(conout);
 
     }
+    
+
+    public static void main(String[] args) throws FileNotFoundException {
+        IssueExporter ie=new IssueExporter();
+        ie.issueExporterFunction();
+}
 }
