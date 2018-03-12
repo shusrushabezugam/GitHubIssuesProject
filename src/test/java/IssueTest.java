@@ -19,15 +19,15 @@ public class IssueTest {
    {
        i1.setId(10);
        i2.setId(10);
-     // i1.setAssignee(u1);
-       i1.setBody("Bug");
-      /* i1.setClosedAt(new Date());
        i1.setAssignee(u1);
-       i1.setCreatedAt(new Date());
+       i1.setBody("Bug");
+       i1.setClosedAt(null);
+       i1.setAssignee(u1);
+       i1.setCreatedAt(null);
        i1.setNumber(123);
        i1.setTitle("First Bug");
        i1.setState("open");
-       */
+   
        i2.setBody("Second Bug");
        u1.setId(10);
        u1.setLogin("shusrushabezugam");
@@ -40,8 +40,7 @@ public class IssueTest {
     @Test
     public void equalsIssueTest() {
       
-       assertTrue(i1.getId()==i2.getId());
-           
+       assertTrue(i1.equals(i2));
     }
     @Test
     public void issueHashCodeTest()
@@ -49,17 +48,37 @@ public class IssueTest {
         int y,z;
         y=i1.hashCode();
         z=i2.hashCode();
-        assertTrue(y==z);
+       assertEquals(y,z);
     }
-    
+    @Test
+    public void equalsTest()
+    {
+        i1.setId(10);
+        i2.setId(10);
+        assertEquals(0,i1.compareTo(i2));
+    }
+    @Test
+    public void equalsGreater()
+    {
+        i1.setId(20);
+        i2.setId(10);
+        assertEquals(1,i1.compareTo(i2));
+    }
+    @Test
+    public void equalsSmaller()
+    {
+        i1.setId(5);
+        i2.setId(10);
+        assertEquals(-1,i1.compareTo(i2));
+    }
     
     @Test
     public void toStringTest()
     {
-        String str = "Issue number=" + 0 + "\n id=" + 10 + "\n state=" + null
-                + "\n title=" + null + "\n body=" + "Bug" + "\n createdAt="
+        String str = "Issue number=" + 123 + "\n id=" + 10 + "\n state=" + "open"
+                + "\n title=" + "First Bug" + "\n body=" + "Bug" + "\n createdAt="
                 + null + "\n closedAt=" + null + "\n user=" + null
-                + "\n assignee=" + null + "";
+                + "\n assignee=User [login=" + "shusrushabezugam"+", id="+10 +"]";
         assertEquals(str, i1.toString());
         
     }

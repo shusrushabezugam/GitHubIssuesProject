@@ -1,11 +1,12 @@
 package main.java;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
-import java.text.SimpleDateFormat;
 
-public class Issue {
+public class Issue implements Comparable<Issue>{
     long number;
-    int id;
+    public int id;
     String state;
     String title;
     String body;
@@ -15,7 +16,7 @@ public class Issue {
     User assignee;
 
     public Issue() {
-
+        
     }
 
     public long getNumber() {
@@ -122,6 +123,24 @@ public class Issue {
                 + "\n title=" + title + "\n body=" + body + "\n createdAt="
                 + createdAt + "\n closedAt=" + closedAt + "\n user=" + user
                 + "\n assignee=" + assignee + "";
+    }
+    @Override
+    public int compareTo(Issue i)
+    {
+        ArrayList<Issue> issues = new ArrayList<Issue>();
+        Collections.sort(issues);
+        if(this.id>i.id)
+        {
+            return 1;
+        }
+        else  if(this.id<i.id)
+        {
+            return -1;
+        }
+        else
+        {
+            return 0;
+        }
     }
 
 }
