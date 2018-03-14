@@ -67,11 +67,11 @@ public class IssueExporter {
         String gn = scanner.next();
         System.out.println("Please enter GitHub password");
         String pwd = scanner.next();
-        //out.println(gn);
+       //out.println(gn);
         //out.println(pwd);
         GitHubRestClient client = new GitHubRestClient();
-        String openjson = client.requestIssues(gn, pwd);
-        String closedjson = client.requestClosedIssues(gn, pwd);
+        String openjson = client.requestIssues(gn, pwd,"open");
+        String closedjson = client.requestIssues(gn, pwd,"closed");
         IssueParser openissuesparser = new IssueParser();
         List<Issue> openissues = openissuesparser.parseIssues(openjson);
 
