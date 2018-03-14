@@ -1,11 +1,10 @@
+
 package main.java;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 
 public class IssueExporter {
@@ -18,7 +17,7 @@ public class IssueExporter {
         String gn = scanner.next();
         System.out.println("Please enter GitHub password");
         String pwd = scanner.next();
-        scanner.close();
+       /*
         Issue i1 = new Issue();
         Issue i2 = new Issue();
         Issue i3 = new Issue();
@@ -65,6 +64,7 @@ public class IssueExporter {
         issues.add(i1);
         issues.add(i2);
         issues.add(i3);
+      
         int size = issues.size();
 
         Iterator<Issue> iterator = issues.iterator();
@@ -89,10 +89,32 @@ public class IssueExporter {
         System.setOut(conout);
 
     }
+    */
+    }
     
 
     public static void main(String[] args) throws FileNotFoundException {
         IssueExporter ie=new IssueExporter();
-        ie.issueExporterFunction();
+        PrintStream out = new PrintStream(new FileOutputStream("issues.txt"));
+        System.out.println("Please enter GitHub username");
+        scanner = new Scanner(System.in);
+        String gn = scanner.next();
+        System.out.println("Please enter GitHub password");
+        String pwd = scanner.next();
+        out.println(gn);
+        out.println(pwd);
+        GitHubRestClient client=new GitHubRestClient();
+        String openjson=client.requestIssues(gn,pwd);
+        String closedjson=client.requestClosedIssues(gn,pwd);
+        IssueParser openissuesparser=new IssueParser();
+        List<Issue> openissues= openissuesparser.parseIssues(openjson);
+        
+        IssueParser closedissuesparser=new IssueParser();
+        List<Issue> closedissues= openissuesparser.parseIssues(closedjson);
+        openissues.addAll(closedissues);
+        out.println(openissues);
+       System.out.println("no of open issues"+openissues.size());
+       //System.out.println("Total no of issues"+closedissues.size());
+       out.close();
 }
 }
