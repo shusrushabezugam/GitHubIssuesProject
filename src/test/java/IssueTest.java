@@ -73,25 +73,10 @@ public class IssueTest {
     }
     //negative tests
     @Test
-    public void failsEqualsTest()
+    public void nullTest()
     {
-        i1.setId(10);
-        i2.setId(10);
-        assertEquals(-1,i1.compareTo(i2));
-    }
-    @Test
-    public void failsEqualsGreater()
-    {
-        i1.setId(20);
-        i2.setId(10);
-        assertEquals(0,i1.compareTo(i2));
-    }
-    @Test
-    public void failsEqualsSmaller()
-    {
-        i1.setId(5);
-        i2.setId(10);
-        assertEquals(1,i1.compareTo(i2));
+
+        assertEquals(0,i1.compareTo(null));
     }
     @Test
     public void toStringTest()
