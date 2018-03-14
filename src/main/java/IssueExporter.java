@@ -1,4 +1,3 @@
-
 package main.java;
 
 import java.io.FileNotFoundException;
@@ -12,13 +11,13 @@ public class IssueExporter {
 
     private static Scanner scanner;
 
-    public void issueExporterFunction() throws FileNotFoundException {
+  /*  public void issueExporterFunction() throws FileNotFoundException {
         System.out.println("Please enter GitHub username");
         scanner = new Scanner(System.in);
         String gn = scanner.next();
         System.out.println("Please enter GitHub password");
         String pwd = scanner.next();
-        /*
+      
          * Issue i1 = new Issue(); Issue i2 = new Issue(); Issue i3 = new
          * Issue(); User u1 = new User(); User u2 = new User();
          * i1.setId(296059795); i1.setNumber(1);
@@ -57,19 +56,19 @@ public class IssueExporter {
          * System.setOut(out); System.setOut(conout);
          * 
          * }
-         */
+        
     }
-
+*/
     public static void main(String[] args) throws FileNotFoundException {
-        IssueExporter ie = new IssueExporter();
+//        IssueExporter ie = new IssueExporter();
         PrintStream out = new PrintStream(new FileOutputStream("issues.txt"));
         System.out.println("Please enter GitHub username");
         scanner = new Scanner(System.in);
         String gn = scanner.next();
         System.out.println("Please enter GitHub password");
         String pwd = scanner.next();
-        out.println(gn);
-        out.println(pwd);
+        //out.println(gn);
+        //out.println(pwd);
         GitHubRestClient client = new GitHubRestClient();
         String openjson = client.requestIssues(gn, pwd);
         String closedjson = client.requestClosedIssues(gn, pwd);
@@ -82,7 +81,7 @@ public class IssueExporter {
         //
         Collections.sort(openissues);
         out.println(openissues);
-        System.out.println("no of open issues" + openissues.size());
+        System.out.print("Total no of issues" + openissues.size());
         // System.out.println("Total no of issues"+closedissues.size());
         out.close();
     }
