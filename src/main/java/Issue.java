@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 
-public class Issue implements Comparable<Issue>{
+public class Issue implements Comparable<Issue> {
     long number;
     public int id;
     String state;
@@ -16,7 +16,7 @@ public class Issue implements Comparable<Issue>{
     User assignee;
 
     public Issue() {
-        
+
     }
 
     public long getNumber() {
@@ -98,18 +98,16 @@ public class Issue implements Comparable<Issue>{
         result = prime * result + id;
         return result;
     }
-    
 
     @Override
     public boolean equals(Object obj) {
-        if (this != obj && this.getClass()==obj.getClass())
-        {
+        if (this != obj && this.getClass() == obj.getClass()) {
             return true;
         }
         if (obj == null) {
             return false;
         }
- 
+
         Issue other = (Issue) obj;
         if (id != other.id) {
             return false;
@@ -124,21 +122,18 @@ public class Issue implements Comparable<Issue>{
                 + createdAt + "\n closedAt=" + closedAt + "\n user=" + user
                 + "\n assignee=" + assignee + "";
     }
+
     @Override
-    public int compareTo(Issue i)
-    {
+    public int compareTo(Issue i) {
         ArrayList<Issue> issues = new ArrayList<Issue>();
         Collections.sort(issues);
-        if(this.id>i.id)
-        {
+        if (this.id > i.id) {
             return 1;
         }
-        else  if(this.id<i.id)
-        {
+        else if (this.id < i.id) {
             return -1;
         }
-        else
-        {
+        else {
             return 0;
         }
     }
