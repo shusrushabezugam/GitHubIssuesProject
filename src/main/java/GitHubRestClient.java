@@ -1,4 +1,4 @@
-package main.java;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -33,7 +33,7 @@ public class GitHubRestClient {
     public String requestIssues(String username, String password,String state) {
         String jsonContent = null;
         String x=null;
-       if(state.equals("open")) {
+       if(("open").equals(state)) {
         x="https://api.github.com/repos/SoftwareStudioSpring2018/githubapi-issues-shusrushabezugam/issues?state=open";
     }
     else {
@@ -59,6 +59,7 @@ public class GitHubRestClient {
         // HttpGet httpget = new
         // HttpGet("/repos/SoftwareStudioSpring2018/githubapi-issues-shusrushabezugam/issues?state=close");
         HttpGet httpget = new HttpGet(x);
+        BufferedReader reader = null;
         try {
             CloseableHttpResponse response = httpclient.execute(target, httpget,
                     localContext);
@@ -67,7 +68,7 @@ public class GitHubRestClient {
 
             HttpEntity entity = response.getEntity();
 
-            BufferedReader reader = new BufferedReader(
+            reader = new BufferedReader(
                     new InputStreamReader(entity.getContent()));
 
             jsonContent = reader.readLine();
@@ -82,62 +83,20 @@ public class GitHubRestClient {
             // TODO properly handle exception
             e.printStackTrace();
         }
-        finally {
-            // TODO close all resources
+        finally 
+        {          // TODO close all resources
+            if (reader != null) {
+                try {
+                    reader.close();
+                }
+                catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
         }
         return jsonContent;
     }
 
-  /*  public String requestClosedIssues(String username, String password) {
-        String jsonContent = null;
-        HttpHost target = new HttpHost("api.github.com", 443, "https");
-        CredentialsProvider credsProvider = new BasicCredentialsProvider();
-        credsProvider.setCredentials(
-                new AuthScope(target.getHostName(), target.getPort()),
-                new UsernamePasswordCredentials(username, password));
 
-        CloseableHttpClient httpclient = HttpClients.custom()
-                .setDefaultCredentialsProvider(credsProvider).build();
-
-        AuthCache authCache = new BasicAuthCache();
-        BasicScheme basicAuth = new BasicScheme();
-        authCache.put(target, basicAuth);
-
-        HttpClientContext localContext = HttpClientContext.create();
-        localContext.setAuthCache(authCache);
-
-        // TODO adjust the URI to match your repo name
-        // HttpGet httpget = new
-        // HttpGet("/repos/SoftwareStudioSpring2018/githubapi-issues-shusrushabezugam/issues?state=close");
-        HttpGet httpget = new HttpGet(
-                "/repos/SoftwareStudioSpring2018/githubapi-issues-shusrushabezugam/issues?state=closed");
-        try {
-            CloseableHttpResponse response = httpclient.execute(target, httpget,
-                    localContext);
-            System.out.println(response.getStatusLine());
-            // TODO check for status 200 before proceeding
-
-            HttpEntity entity = response.getEntity();
-
-            BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(entity.getContent()));
-
-            jsonContent = reader.readLine();
-
-            EntityUtils.consume(entity);
-        }
-        catch (ClientProtocolException e) {
-            // TODO properly handle exception
-            e.printStackTrace();
-        }
-        catch (IOException e) {
-            // TODO properly handle exception
-            e.printStackTrace();
-        }
-        finally {
-            // TODO close all resources
-        }
-        return jsonContent;
-    }
-    */
 }

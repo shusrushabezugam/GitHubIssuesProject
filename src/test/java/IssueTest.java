@@ -1,12 +1,9 @@
-package test.java;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import main.java.Issue;
-import main.java.User;
 
 public class IssueTest {
     Issue i1=new Issue();
@@ -89,5 +86,7 @@ public class IssueTest {
         
     }
 }
+
 // test for exceptions
 //@Test(expeccted=npe.class)
+

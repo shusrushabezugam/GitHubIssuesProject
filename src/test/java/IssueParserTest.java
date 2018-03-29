@@ -1,10 +1,9 @@
-package test.java;
 
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -14,9 +13,6 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import main.java.Issue;
-import main.java.IssueParser;
 
 public class IssueParserTest {
     String JSONAsString=" ";

@@ -1,19 +1,19 @@
-package main.java;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 
 public class Issue implements Comparable<Issue> {
-    long number;
-    public int id;
-    String state;
-    String title;
-    String body;
-    Date createdAt;
-    Date closedAt;
-    User user;
-    User assignee;
+    private long number;
+    private int id;
+    private String state;
+    private String title;
+    private String body;
+    private Date createdAt;
+    private Date closedAt;
+    private User user;
+    private User assignee;
 
     public Issue() {
 

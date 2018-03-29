@@ -1,8 +1,8 @@
-package main.java;
+
 
 public class User {
-    String login;
-    int id;
+    private String login;
+    private int id;
 
     public User() {
 
