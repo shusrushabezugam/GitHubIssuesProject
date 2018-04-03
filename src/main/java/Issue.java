@@ -123,7 +123,6 @@ public class Issue implements Comparable<Issue> {
                 + "\n assignee=" + assignee + "";
     }
 
-    @Override
     public int compareTo(Issue i) {
         ArrayList<Issue> issues = new ArrayList<Issue>();
         Collections.sort(issues);
