@@ -1,5 +1,4 @@
 
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -25,21 +24,21 @@ public class GitHubRestClient {
 
     public static void main(String[] args) {
         GitHubRestClient prototype = new GitHubRestClient();
-        // IMPORTANT: don't commit your username and password to your repo!!!
-        String json = prototype.requestIssues("", "","open");
+        String json = prototype.requestIssues("", "", "open");
         System.out.println(json);
     }
 
-    public String requestIssues(String username, String password,String state) {
+    public String requestIssues(String username, String password,
+            String state) {
         String jsonContent = null;
-        String x=null;
-      
-       if(("open").equals(state)) {
-        x="https://api.github.com/repos/SoftwareStudioSpring2018/githubapi-issues-shusrushabezugam/issues?state=open";
-    }
-    else {
-        x="https://api.github.com/repos/SoftwareStudioSpring2018/githubapi-issues-shusrushabezugam/issues?state=closed";
-    }
+        String x = null;
+
+        if (("open").equals(state)) {
+            x = "https://api.github.com/repos/SoftwareStudioSpring2018/githubapi-issues-shusrushabezugam/issues?state=open";
+        }
+        else {
+            x = "https://api.github.com/repos/SoftwareStudioSpring2018/githubapi-issues-shusrushabezugam/issues?state=closed";
+        }
         HttpHost target = new HttpHost("api.github.com", 443, "https");
         CredentialsProvider credsProvider = new BasicCredentialsProvider();
         credsProvider.setCredentials(
@@ -55,17 +54,12 @@ public class GitHubRestClient {
 
         HttpClientContext localContext = HttpClientContext.create();
         localContext.setAuthCache(authCache);
-      
-        // TODO adjust the URI to match your repo name
-        // HttpGet httpget = new
-        // HttpGet("/repos/SoftwareStudioSpring2018/githubapi-issues-shusrushabezugam/issues?state=close");
         HttpGet httpget = new HttpGet(x);
         BufferedReader reader = null;
         try {
             CloseableHttpResponse response = httpclient.execute(target, httpget,
                     localContext);
             System.out.println(response.getStatusLine());
-            // TODO check for status 200 before proceeding
 
             HttpEntity entity = response.getEntity();
 
@@ -77,27 +71,25 @@ public class GitHubRestClient {
             EntityUtils.consume(entity);
         }
         catch (ClientProtocolException e) {
-            // TODO properly handle exception
+            
             e.printStackTrace();
         }
         catch (IOException e) {
-            // TODO properly handle exception
+           
             e.printStackTrace();
         }
-        finally 
-        {          // TODO close all resources
+        finally {
             if (reader != null) {
                 try {
                     reader.close();
                 }
                 catch (IOException e) {
-                    // TODO Auto-generated catch block
+                   
                     e.printStackTrace();
                 }
             }
         }
         return jsonContent;
     }
-
 
 }
