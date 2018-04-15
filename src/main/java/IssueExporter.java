@@ -25,12 +25,11 @@ public class IssueExporter {
         String closedjson = client.requestIssues(gn, pwd, "closed");
         IssueParser issuesparser = new IssueParser();
         List<Issue> openissues = issuesparser.parseIssues(openjson);
-        //IssueParser closedissuesparser = new IssueParser();
         List<Issue> closedissues = issuesparser.parseIssues(closedjson);
         openissues.addAll(closedissues);
         Collections.sort(openissues);
         out.println(openissues);
-        System.out.print("Total no of issues" + openissues.size());
+        System.out.print("Total no of issues " + openissues.size());
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
