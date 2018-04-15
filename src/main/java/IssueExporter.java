@@ -23,10 +23,10 @@ public class IssueExporter {
         GitHubRestClient client = new GitHubRestClient();
         String openjson = client.requestIssues(gn, pwd, "open");
         String closedjson = client.requestIssues(gn, pwd, "closed");
-        IssueParser openissuesparser = new IssueParser();
-        List<Issue> openissues = openissuesparser.parseIssues(openjson);
-        IssueParser closedissuesparser = new IssueParser();
-        List<Issue> closedissues = closedissuesparser.parseIssues(closedjson);
+        IssueParser issuesparser = new IssueParser();
+        List<Issue> openissues = issuesparser.parseIssues(openjson);
+        //IssueParser closedissuesparser = new IssueParser();
+        List<Issue> closedissues = issuesparser.parseIssues(closedjson);
         openissues.addAll(closedissues);
         Collections.sort(openissues);
         out.println(openissues);
