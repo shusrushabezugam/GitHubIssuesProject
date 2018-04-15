@@ -18,18 +18,8 @@ public class IssueExporter {
         System.out.println("Please enter GitHub password");
         String pwd = scanner.next();
         PrintStream out = null;
-        try {
-            out = new PrintStream(new FileOutputStream("issues.txt"));
-        }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        finally {
-            if (out != null) {
-                out.close();
-
-            }
-        }
+        try{
+        out = new PrintStream(new FileOutputStream("issues.txt"));
         GitHubRestClient client = new GitHubRestClient();
         String openjson = client.requestIssues(gn, pwd, "open");
         String closedjson = client.requestIssues(gn, pwd, "closed");
@@ -41,6 +31,16 @@ public class IssueExporter {
         Collections.sort(openissues);
         out.println(openissues);
         System.out.print("Total no of issues" + openissues.size());
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        finally {
+            if (out != null) {
+                out.close();
+
+            }
+        }
         out.close();
     }
 
