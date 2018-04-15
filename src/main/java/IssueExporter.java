@@ -41,7 +41,6 @@ public class IssueExporter {
         Collections.sort(openissues);
         out.println(openissues);
         System.out.print("Total no of issues" + openissues.size());
-        // System.out.println("Total no of issues"+closedissues.size());
         out.close();
     }
 
