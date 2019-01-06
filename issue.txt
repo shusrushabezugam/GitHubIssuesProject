@@ -1,0 +1,28 @@
+Issue number=1
+ id=296059795
+ state=open
+ title=Found a Bug test issue 1
+ body=Testing first issue1
+ createdAt=Sun Nov 10 00:00:00 EST 1918
+ closedAt=null
+ user=User [login=shusrushabezugam, id=29138698]
+ assignee=User [login=Ms-O, id=6319957]
+Issue number=2
+ id=296060235
+ state=open
+ title=problem to be solved issue2
+ body=Bug not yet resolved.
+ createdAt=null
+ closedAt=null
+ user=User [login=shusrushabezugam, id=29138698]
+ assignee=User [login=Ms-O, id=6319957]
+Issue number=3
+ id=296060285
+ state=closed
+ title=Bug Solved issue 3
+ body=Bug got resolved.
+ createdAt=Sat Feb 10 02:03:57 EST 2018
+ closedAt=Sat Feb 10 02:03:57 EST 2018
+ user=User [login=shusrushabezugam, id=29138698]
+ assignee=User [login=shusrushabezugam, id=29138698]
+

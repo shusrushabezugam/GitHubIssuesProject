@@ -1,3 +1,3 @@
 # githubapi-issues-shusrushabezugam
-githubapi-issues-shusrushabezugam created by GitHub Classroom
+githubapi-issues-shusrushabezugam
 issues
